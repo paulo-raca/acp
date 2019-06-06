@@ -1,7 +1,0 @@
-Simbolo R na formula do atraso
-Legenda no gráfico
-Ajuste numérico do gráfico
-[18:32, 5/31/2019] Paulo Costa: Quando você diz que o Simulink foi igual à curva teórica, vale a pena mencionar que o Simulink não tem aquele "barriguinha" negativa em t<L?
-[18:33, 5/31/2019] Paulo Costa: Acho que no Simulink também tem que limitar U entre 0 e 100%
-
-- Todo o resto
