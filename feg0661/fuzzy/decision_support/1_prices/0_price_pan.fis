@@ -1,0 +1,58 @@
+[System]
+Name='0_price_pan'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='precoCusto'
+Range=[0 2]
+NumMFs=3
+MF1='baixo':'trimf',[-1 0 1]
+MF2='medio':'trimf',[0.5 1 1.5]
+MF3='alto':'trimf',[1 2 3]
+
+[Input2]
+Name='volumeEstoque'
+Range=[0 14]
+NumMFs=3
+MF1='baixo':'trimf',[-7 0 7]
+MF2='medio':'trimf',[4 7 10]
+MF3='alto':'trimf',[7 14 21]
+
+[Input3]
+Name='historicoVendas'
+Range=[0 14]
+NumMFs=3
+MF1='baixo':'trimf',[-7 0 7]
+MF2='medio':'trimf',[4 7 10]
+MF3='alto':'trimf',[7 14 21]
+
+[Output1]
+Name='aumentoPreco'
+Range=[0 50]
+NumMFs=3
+MF1='baixo':'trimf',[-25 0 25]
+MF2='medio':'trimf',[15 25 35]
+MF3='alto':'trimf',[25 50 75]
+
+[Rules]
+1 0 0, 1 (1) : 1
+2 0 0, 2 (1) : 1
+3 0 0, 3 (1) : 1
+0 1 1, 2 (1) : 1
+0 1 2, 3 (1) : 1
+0 1 3, 3 (1) : 1
+0 2 1, 1 (1) : 1
+0 2 2, 2 (1) : 1
+0 2 3, 3 (1) : 1
+0 3 1, 1 (1) : 1
+0 3 2, 1 (1) : 1
+0 3 3, 2 (1) : 1

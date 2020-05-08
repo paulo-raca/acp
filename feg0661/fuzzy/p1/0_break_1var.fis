@@ -1,0 +1,33 @@
+[System]
+Name='fuzzy_1var'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='distancia'
+Range=[0 30]
+NumMFs=3
+MF1='pequena':'trimf',[-15 0 15]
+MF2='media':'trimf',[1.15079365079365 15 27.8]
+MF3='grande':'trimf',[15 30 45]
+
+[Output1]
+Name='frenagem'
+Range=[0 100]
+NumMFs=3
+MF1='nada':'trimf',[-40 0 40]
+MF2='medio':'trimf',[10 50 90]
+MF3='muito':'trimf',[90 100 140]
+
+[Rules]
+1, 3 (1) : 1
+2, 2 (1) : 1
+3, 1 (1) : 1

@@ -1,0 +1,75 @@
+[System]
+Name='0_price_beans'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=21
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='precoCusto'
+Range=[0 9]
+NumMFs=3
+MF1='baixo':'trimf',[-5 0 5]
+MF2='medio':'trimf',[3 5 7]
+MF3='alto':'trimf',[5 9 13]
+
+[Input2]
+Name='volumeEstoque'
+Range=[0 200]
+NumMFs=3
+MF1='baixo':'trimf',[-100 0 100]
+MF2='medio':'trimf',[50 100 150]
+MF3='alto':'trimf',[100 200 300]
+
+[Input3]
+Name='historicoVendas'
+Range=[0 200]
+NumMFs=3
+MF1='baixo':'trimf',[-100 0 100]
+MF2='medio':'trimf',[50 100 150]
+MF3='alto':'trimf',[100 200 300]
+
+[Input4]
+Name='dataValidade'
+Range=[0 120]
+NumMFs=3
+MF1='baixo':'trimf',[-60 0 60]
+MF2='medio':'trimf',[30 60 90]
+MF3='alto':'trimf',[60 120 180]
+
+[Output1]
+Name='aumentoPreco'
+Range=[0 15]
+NumMFs=3
+MF1='baixo':'trimf',[-8 0 8]
+MF2='medio':'trimf',[4 8 12]
+MF3='alto':'trimf',[8 15 23]
+
+[Rules]
+1 0 0 0, 1 (1) : 1
+2 0 0 0, 2 (1) : 1
+3 0 0 0, 3 (1) : 1
+0 1 1 0, 2 (1) : 1
+0 1 2 0, 3 (1) : 1
+0 1 3 0, 3 (1) : 1
+0 2 1 0, 1 (1) : 1
+0 2 2 0, 2 (1) : 1
+0 2 3 0, 3 (1) : 1
+0 3 1 0, 1 (1) : 1
+0 3 2 0, 1 (1) : 1
+0 3 3 0, 2 (1) : 1
+0 1 0 3, 3 (1) : 1
+0 1 0 2, 3 (1) : 1
+0 1 0 1, 2 (1) : 1
+0 2 0 3, 3 (1) : 1
+0 2 0 2, 2 (1) : 1
+0 2 0 1, 1 (1) : 1
+0 3 0 3, 2 (1) : 1
+0 3 0 2, 1 (1) : 1
+0 3 0 1, 1 (1) : 1

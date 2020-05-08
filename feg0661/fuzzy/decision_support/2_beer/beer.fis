@@ -1,0 +1,63 @@
+[System]
+Name='beer'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=10
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='CO_2'
+Range=[0.4 0.72]
+NumMFs=3
+MF1='baixo':'trapmf',[0 0 0.495 0.575]
+MF2='ideal':'trimf',[0.495 0.575 0.655]
+MF3='alto':'trapmf',[0.575 0.655 1 1]
+
+[Input2]
+Name='pH'
+Range=[3.4 5.2]
+NumMFs=3
+MF1='baixo':'trapmf',[0 0 3.5 4.2]
+MF2='ideal':'trapmf',[3.5 4.2 4.4 5.1]
+MF3='alto':'trapmf',[4.4 5.1 10 10]
+
+[Input3]
+Name='alcohol'
+Range=[3 7]
+NumMFs=3
+MF1='baixo':'trapmf',[0 0 4.25 5]
+MF2='ideal':'trimf',[4.25 5 5.75]
+MF3='alto':'trapmf',[5 5.75 10 10]
+
+[Input4]
+Name='turbidity'
+Range=[0 3]
+NumMFs=2
+MF1='ideal':'trapmf',[0 0 1 1.3]
+MF2='alto':'trapmf',[1 1.3 3 3]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=3
+MF1='reprovado':'trapmf',[0 0 0.3 0.5]
+MF2='aprovado_com_alterações':'trimf',[0.3 0.5 0.7]
+MF3='aprovado':'trapmf',[0.5 0.7 1 1]
+
+[Rules]
+1 1 1 2, 1 (1) : 1
+1 1 1 1, 1 (1) : 1
+1 2 2 2, 1 (1) : 1
+1 2 1 2, 1 (1) : 1
+1 3 2 1, 1 (1) : 1
+2 1 1 1, 1 (1) : 1
+2 2 2 1, 3 (1) : 1
+2 2 2 1, 2 (1) : 1
+2 3 1 1, 1 (1) : 1
+3 2 2 2, 1 (1) : 1

@@ -1,0 +1,49 @@
+[System]
+Name='3_washing_machine'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='GrauSujeira'
+Range=[0 100]
+NumMFs=3
+MF1='Pequeno':'trimf',[-50 -4.441e-16 50]
+MF2='Medio':'trimf',[0 50 100]
+MF3='Grande':'trimf',[50 100 150]
+
+[Input2]
+Name='Profissional'
+Range=[0 100]
+NumMFs=3
+MF1='Medico':'trimf',[-50 -4.441e-16 50]
+MF2='Engenheiro':'trimf',[0 50 100]
+MF3='Mecanico':'trimf',[50 100 150]
+
+[Output1]
+Name='TempoLavagem'
+Range=[0 100]
+NumMFs=5
+MF1='MuitoCurto':'trimf',[-25 -2.22e-16 25]
+MF2='Curto':'trimf',[0 25 50]
+MF3='Medio':'trimf',[25 50 75]
+MF4='Longo':'trimf',[50 75 100]
+MF5='MuitoLongo':'trimf',[75 100 125]
+
+[Rules]
+3 3, 5 (1) : 1
+2 3, 4 (1) : 1
+1 3, 4 (1) : 1
+3 2, 4 (1) : 1
+2 2, 3 (1) : 1
+1 2, 3 (1) : 1
+3 1, 3 (1) : 1
+2 1, 2 (1) : 1
+1 1, 1 (1) : 1
