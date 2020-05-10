@@ -1,15 +1,15 @@
 [System]
 Name='3_washing_machine'
-Type='mamdani'
+Type='sugeno'
 Version=2.0
 NumInputs=2
 NumOutputs=1
 NumRules=9
-AndMethod='min'
-OrMethod='max'
-ImpMethod='min'
-AggMethod='max'
-DefuzzMethod='centroid'
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
 
 [Input1]
 Name='GrauSujeira'
@@ -31,19 +31,19 @@ MF3='Mecanico':'trimf',[50 100 150]
 Name='TempoLavagem'
 Range=[0 100]
 NumMFs=5
-MF1='MuitoCurto':'trimf',[-25 -2.22e-16 25]
-MF2='Curto':'trimf',[0 25 50]
-MF3='Medio':'trimf',[25 50 75]
-MF4='Longo':'trimf',[50 75 100]
-MF5='MuitoLongo':'trimf',[75 100 125]
+MF1='MuitoLongo':'constant',[100]
+MF2='Longo':'constant',[75]
+MF3='Medio':'constant',[50]
+MF4='Curto':'constant',[25]
+MF5='MuitoCurto':'constant',[0]
 
 [Rules]
-3 3, 5 (1) : 1
-2 3, 4 (1) : 1
-1 3, 4 (1) : 1
-3 2, 4 (1) : 1
+3 3, 1 (1) : 1
+2 3, 2 (1) : 1
+1 3, 2 (1) : 1
+3 2, 2 (1) : 1
 2 2, 3 (1) : 1
 1 2, 3 (1) : 1
 3 1, 3 (1) : 1
-2 1, 2 (1) : 1
-1 1, 1 (1) : 1
+2 1, 4 (1) : 1
+1 1, 5 (1) : 1
