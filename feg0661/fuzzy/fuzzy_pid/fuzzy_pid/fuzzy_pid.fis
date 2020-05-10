@@ -1,5 +1,5 @@
 [System]
-Name='fuzzy_pi'
+Name='fuzzy_pid'
 Type='mamdani'
 Version=2.0
 NumInputs=2
@@ -36,7 +36,7 @@ MF6='MP':'trimf',[0.3334 0.6666 1]
 MF7='GP':'trimf',[0.6666 1 1.334]
 
 [Output1]
-Name='dOut'
+Name='out'
 Range=[-1 1]
 NumMFs=7
 MF1='GN':'trimf',[-1.333 -1 -0.6666]
